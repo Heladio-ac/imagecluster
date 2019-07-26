@@ -28,7 +28,7 @@ def search_cluster(keyword):
         print('Searching for %s' % keyword)
         searcher.search(keyword)
         print('Downloading')
-        files = searcher.download(50)
+        files = searcher.download(32)
     except:
         searcher.stop()
         sys.exit(0)
@@ -74,6 +74,3 @@ def search_cluster(keyword):
 
 
 search_cluster('cart icon')
-search_cluster('web icon')
-search_cluster('money icon')
-search_cluster('login icon')

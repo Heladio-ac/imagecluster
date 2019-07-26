@@ -159,13 +159,3 @@ def test_img_timestamp():
         assert icio.stat_timestamp(fn) is not None
         assert icio.timestamp(fn, source='auto') is not None
         assert icio.timestamp(fn, source='auto') == icio.stat_timestamp(fn)
-
-
-print('Test API get image data:')
-test_api_get_image_data()
-print('Test low level api and clustering')
-test_low_level_api_and_clustering()
-print('Test png rgba io')
-test_png_rgba_io()
-print('Test images timestamp')
-test_img_timestamp()

@@ -1,0 +1,89 @@
+CHANGES
+=======
+
+* Test clusters manipulation
+* Add minor usage tests
+
+0.4.0
+-----
+
+* REL: bump version
+* API: rename read\_image\_arrays() -> read\_images()
+* DOC: add sphinx docs, update examples
+* API/ENH: rm main, add time distance scaling
+
+0.3.1
+-----
+
+* ENH: handle PIL error "broken data stream when reading image file"
+* DOC: add Contributions section in README
+* MNT: Use utf-8 encoding when reading README.rst Avoid UnicodeDecodeErrors on some platforms that default to ascii encoding and fail to read the non-ascii characters
+
+0.3.0
+-----
+
+* REL: bump version
+* ENH: support PNG images
+* TST: add context manager, add clustering test, rm scipy.misc
+* BLD: add missing matplotlib requirement
+* DOC: fix comment in cluster()
+* MNT: cleanup in setup.py
+* DOC: update doc strings
+* ENH: move main's PCA to calc.pca(), update docs and examples
+* API: make cluster\_stats() return a numpy array
+
+0.2.0
+-----
+
+* REL: Bump version
+* ENH/BEH: plot\_clusters: change max\_csize beh., add mem\_limit
+* BUG/API: rename \*elem\* -> \*csize\*, use >= when checking min\_csize
+* DOC: README: API code examples, add images, rm NN prose
+* TST: Adapt test to recent changes
+* ENH: Add optional PCA before clustering in main
+* ENH: Add examples dir: API, main, plot dendrogram
+* API/ENH: Add image database step, postproc module
+* STY: pep8: common.py
+* INT: Rename dir test -> tests
+* INT: Rename play/ -> examples/
+* API: change retrun value from cluster()
+* DOC: Update README: mention related projects
+
+0.1.0
+-----
+
+* Bump version
+* Update LICENSE
+* cluster(): add extra\_out kwd
+* Add user-facing option to select feature layer
+* Fix typo in README
+* Remove setup.py's deps hack, add requirements.txt
+* BEH: switch to PIL.Image.resize method 3 (BICUBIC)
+* ENH: improve pil\_resample\_methods.py, add speedup/quality measure
+* DOC: update TODO and README
+* BUG: add PIL to setup.py
+* DOC: clarify similarity index
+* INT: setup.py: cleanup package check
+* INT: fix license in setup.py, make setup.py executable, update .gitignore
+* DOC: misc doc updates, add TODO
+* INT: add LICENSE
+* INT: cleanup
+* BEH: invert \`sim\` parameter effect in cluster()
+* DOC: update docs
+* API/ENH: add common.py, better file search, handle gray scale
+* BEH: save fingerprints and clusters to <imagedir>/imagecluster
+* API: change output of cluster() + input to make\_links()
+* INT: misc cleanup
+* ENH: add imagecluster.{read,write}\_pk(), update docs
+* INT: Remove env.py
+* API: use Keras and NNs, remove cmd line interface
+* INT: pip-ify package, add dir imgcmp, add files, add setup.py
+* DOC: move PIL resize doc to play/pil\_resample\_methods.py
+* DOC: misc updates and typo fixes
+* BUG: env.py: import sys
+* DOC: misc updates
+* ENH: use resized files by default in bin/10fingerprints.py
+* ENH: Update README
+* ENH: 00resize.py: faster, skip already present resize results
+* API: small API changes, python3, h5py utf8 strings, docs
+* initial commit

@@ -1,8 +1,9 @@
 *.pyc
-*.egg-info
+*.egg*
 *.swp
 *.bak*
 build/
+dist/
 doc/build
 doc/source/generated
 doc/sphinx-autodoc

@@ -6,14 +6,15 @@ from scipy.spatial import distance
 from scipy.cluster import hierarchy
 from sklearn.decomposition import PCA
 
-from keras.applications.vgg16 import VGG16, preprocess_input
+# from keras.applications.vgg16 import VGG16, preprocess_input
+from keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
 from keras.models import Model
 
 
 pj = os.path.join
 
 
-def get_model(layer='fc2'):
+def get_model():
     """Keras Model of the VGG16 network, with the output layer set to `layer`.
 
     The default layer is the second-to-last fully connected layer 'fc2' of
@@ -24,28 +25,11 @@ def get_model(layer='fc2'):
     layer : str
         which layer to extract (must be of shape (None, X)), e.g. 'fc2', 'fc1'
         or 'flatten'
-
-    Notes
-    -----
-    ::
-
-        base_model.summary()
-            ....
-            block5_conv4 (Conv2D)        (None, 15, 15, 512)       2359808
-            _________________________________________________________________
-            block5_pool (MaxPooling2D)   (None, 7, 7, 512)         0
-            _________________________________________________________________
-            flatten (Flatten)            (None, 25088)             0
-            _________________________________________________________________
-            fc1 (Dense)                  (None, 4096)              102764544
-            _________________________________________________________________
-            fc2 (Dense)                  (None, 4096)              16781312
-            _________________________________________________________________
-            predictions (Dense)          (None, 1000)              4097000
     """
-    base_model = VGG16(weights='imagenet', include_top=True)
+    # base_model = VGG16(weights='imagenet', include_top=True)
+    base_model = MobileNetV2(weights='imagenet', include_top=True)
     model = Model(inputs=base_model.input,
-                  outputs=base_model.get_layer(layer).output)
+                  outputs=base_model.get_layer(index=-2).output)
     return model
 
 

@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* Package in a python module
 * Test clusters manipulation
 * Add minor usage tests
 

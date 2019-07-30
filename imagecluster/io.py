@@ -209,9 +209,8 @@ def read_timestamps(imagedir, source='auto', ncores=mp.cpu_count()):
 # TODO fingerprints and timestamps may have different images which have been
 # skipped -> we need a data struct to hold all image data and mask out the
 # skipped ones. For now we have a check in calc.cluster()
-def get_image_data(imagedir, model_kwds=dict(layer='fc2'),
-                   img_kwds=dict(size=(224,224)), timestamps_kwds=dict(source='auto'),
-                   pca_kwds=None):
+def get_image_data(imagedir, img_kwds=dict(size=(224,224)),
+                   timestamps_kwds=dict(source='auto'), pca_kwds=None):
     """Convenience function to create `images`, `fingerprints`,
     `timestamps`.
 
@@ -225,8 +224,6 @@ def get_image_data(imagedir, model_kwds=dict(layer='fc2'),
     Parameters
     ----------
     imagedir : str
-    model_kwds : dict
-        passed to :func:`~imagecluster.calc.get_model`
     img_kwds : dict
         passed to :func:`~imagecluster.io.read_images`
     timestamps_kwds : dict
@@ -255,7 +252,7 @@ def get_image_data(imagedir, model_kwds=dict(layer='fc2'),
         fingerprints = read_pk(fingerprints_fn)
     else:
         print(f"create fingerprints {fingerprints_fn}")
-        fingerprints = ic.fingerprints(images, ic.get_model(**model_kwds))
+        fingerprints = ic.fingerprints(images, ic.get_model())
         if pca_kwds is not None:
             fingerprints = ic.pca(fingerprints, **pca_kwds)
         write_pk(fingerprints, fingerprints_fn)

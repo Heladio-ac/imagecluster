@@ -1,6 +1,9 @@
 CHANGES
 =======
 
+* Remove layer selection
+* Use smaller ANN for feature extraction
+* Delete setup.py
 * Package in a python module
 * Test clusters manipulation
 * Add minor usage tests
